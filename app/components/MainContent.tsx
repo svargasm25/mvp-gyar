@@ -12,7 +12,7 @@ export default function MainContent({
 
   return (
     <main
-      className={`flex-1 overflow-y-auto ${isLogin ? "" : "p-8"}`}
+      className={`flex-1 overflow-y-auto ${isLogin ? "" : "p-4 md:p-8"}`}
     >
       {children}
     </main>

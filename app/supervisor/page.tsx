@@ -224,7 +224,8 @@ export default function SupervisorPage() {
             % de cumplimiento de cada gestor frente al objetivo diario.
           </p>
 
-          <div className="mt-6 flex items-end justify-between h-64 border-b border-slate-200 pb-2 gap-1 w-full relative">
+          <div className="mt-6 overflow-x-auto pb-4 custom-scrollbar">
+          <div className="flex items-end justify-between h-64 border-b border-slate-200 pb-2 gap-1 w-full min-w-[800px] relative">
             {gestores.map((gestor, index) => {
               const ratio = (gestor.managed / gestor.assigned) * 100;
               const rate = gestor.managed / gestor.assigned;
@@ -297,6 +298,7 @@ export default function SupervisorPage() {
               );
             })}
           </div>
+          </div>
 
           <p className="mt-3 text-xs text-[#737373]">
             Mejor rendimiento del grupo: {maxRatio.toFixed(1)}%
@@ -311,7 +313,7 @@ export default function SupervisorPage() {
 
       {selectedGestor && (
         <div className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="bg-white rounded-xl shadow-2xl w-[95%] max-w-3xl overflow-hidden flex flex-col max-h-[85vh]">
             <div className="flex items-center justify-between border-b border-gray-200 px-6 py-5">
               <div>
                 <p className="text-lg font-semibold tracking-tight text-[#0a0a0a]">
@@ -334,30 +336,32 @@ export default function SupervisorPage() {
               <p className="mb-4 text-sm font-semibold text-[#0a0a0a]">
                 Top 10 Expedientes
               </p>
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b border-gray-200 text-xs uppercase tracking-wide text-[#737373]">
-                    <th className="py-2 font-medium">ID Expediente</th>
-                    <th className="py-2 font-medium">Importe</th>
-                    <th className="py-2 font-medium">Score F2*</th>
-                    <th className="py-2 font-medium">Estado</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {expedientes.map((exp) => (
-                    <tr key={exp.id} className="border-b border-gray-100">
-                      <td className="py-3 font-mono text-[#0a0a0a]">{exp.id}</td>
-                      <td className="py-3 text-[#0a0a0a]">€{exp.importe}</td>
-                      <td className="py-3 text-[#0a0a0a]">{exp.score}</td>
-                      <td className="py-3">
-                        <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-800">
-                          Gestionado
-                        </span>
-                      </td>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-200 text-xs uppercase tracking-wide text-[#737373]">
+                      <th className="py-2 font-medium">ID Expediente</th>
+                      <th className="py-2 font-medium">Importe</th>
+                      <th className="py-2 font-medium">Score F2*</th>
+                      <th className="py-2 font-medium">Estado</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {expedientes.map((exp) => (
+                      <tr key={exp.id} className="border-b border-gray-100">
+                        <td className="py-3 font-mono text-[#0a0a0a]">{exp.id}</td>
+                        <td className="py-3 text-[#0a0a0a]">€{exp.importe}</td>
+                        <td className="py-3 text-[#0a0a0a]">{exp.score}</td>
+                        <td className="py-3">
+                          <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-800">
+                            Gestionado
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

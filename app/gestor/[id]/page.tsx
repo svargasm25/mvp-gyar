@@ -124,7 +124,7 @@ export default function GestorPage({
     <div className="flex flex-1 flex-col bg-white px-6 py-12">
       <p className="mb-6 text-sm text-[#737373]">Gestor {id}</p>
 
-      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-start">
         <div>
           {exp && cliente ? (
             <div className="border border-[#0a0a0a] px-10 py-10 text-center">

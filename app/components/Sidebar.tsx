@@ -19,7 +19,7 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="flex h-screen w-72 flex-col border-r border-gray-200 bg-white">
+    <aside className="flex w-full md:h-screen md:w-72 flex-col border-b md:border-b-0 md:border-r border-gray-200 bg-white flex-shrink-0">
       <div className="px-6 pt-8 pb-4">
         <h1 className="text-2xl font-bold tracking-tight text-[#0a0a0a]">
           OPPLUS
@@ -71,7 +71,7 @@ export default function Sidebar() {
         )}
       </div>
 
-      <nav className="my-2 flex-1 overflow-y-auto px-6">
+      <nav className="my-2 max-h-64 overflow-y-auto px-6 md:max-h-none md:flex-1">
         {isGestoresOpen && (
           <ul className="flex flex-col gap-1 pl-4">
             {filteredGestorIds.map((id) => {
